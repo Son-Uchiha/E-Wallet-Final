@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Nền siêu nhạt để thẻ trắng nổi bật */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f5f9;
+  --color-surface-alt: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  /* Màu chức năng tươi sáng hơn */
+  --color-income: #10b981;
+  --color-income-light: #34d399;
+  --color-income-bg: #ecfdf5;
+
+  --color-expense: #ef4444;
+  --color-expense-light: #f87171;
+  --color-expense-bg: #fef2f2;
+
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-bg: #eef2ff;
+  --color-primary-deep: #4338ca;
+
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+
+  /* Typography cao cấp với Slate */
+  --color-text: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-dim: #94a3b8;
+
+  /* Custom shadows siêu mịn */
+  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-premium-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar thanh lịch */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loại bỏ mũi tên số lượng (spinners) của input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Custom Select Dropdown Icon */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px !important;
+}
+
+/* Common Card Style */
+.card-premium {
+  @apply bg-surface rounded-3xl shadow-premium border border-border/50;
+}
