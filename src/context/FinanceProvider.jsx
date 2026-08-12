@@ -38,6 +38,7 @@ const createSeedData = () => {
   const prevMonth = getPreviousMonth(currentMonth);
   const [curYear, curMon] = currentMonth.split("-").map(Number);
   const [prevYear, prevMon] = prevMonth.split("-").map(Number);
+
   const categories = [
     { id: "cat_1", name: "Ăn uống", limit: 3000000 },
     { id: "cat_2", name: "Di chuyển", limit: 1500000 },
@@ -153,16 +154,12 @@ export const FinanceProvider = ({ children }) => {
 
   // Tổng thu nhập của tháng được chọn
   const totalIncome = useMemo(() => {
-    return filteredTransactions
-      .filter((t) => t.type === "income")
-      .reduce((sum, t) => sum + t.amount, 0);
+    return filteredTransactions.filter((t) => t.type === "income").reduce((sum, t) => sum + t.amount, 0);
   }, [filteredTransactions]);
 
   // Tổng chi tiêu của tháng được chọn
   const totalExpense = useMemo(() => {
-    return filteredTransactions
-      .filter((t) => t.type === "expense")
-      .reduce((sum, t) => sum + t.amount, 0);
+    return filteredTransactions.filter((t) => t.type === "expense").reduce((sum, t) => sum + t.amount, 0);
   }, [filteredTransactions]);
 
   // Số dư = Tổng Thu - Tổng Chi
@@ -223,11 +220,7 @@ export const FinanceProvider = ({ children }) => {
   // Cập nhật thông tin danh mục (đổi tên, đổi hạn mức)
   const updateCategory = useCallback((id, name, limit) => {
     setCategories((prev) =>
-      prev.map((c) =>
-        c.id === id
-          ? { ...c, name: name.trim(), limit: Math.abs(Number(limit)) || 0 }
-          : c,
-      ),
+      prev.map((c) => (c.id === id ? { ...c, name: name.trim(), limit: Math.abs(Number(limit)) || 0 } : c)),
     );
   }, []);
 
@@ -257,12 +250,7 @@ export const FinanceProvider = ({ children }) => {
 
   // Xóa sạch mọi giao dịch của một danh mục TRONG MỘT THÁNG CỤ THỂ
   const clearCategoryMonthData = useCallback((categoryId, monthKey) => {
-    setTransactions((prev) =>
-      prev.filter(
-        (t) =>
-          !(t.categoryId === categoryId && getMonthKey(t.date) === monthKey),
-      ),
-    );
+    setTransactions((prev) => prev.filter((t) => !(t.categoryId === categoryId && getMonthKey(t.date) === monthKey)));
   }, []);
 
   // Cập nhật tổng ngân sách của tháng
@@ -273,9 +261,7 @@ export const FinanceProvider = ({ children }) => {
   // Lấy chi tiết chi tiêu của một tháng bất kỳ (dùng cho bảng thống kê SummaryTable)
   const getMonthSpending = useCallback(
     (monthKey) => {
-      const monthTx = transactions.filter(
-        (t) => getMonthKey(t.date) === monthKey && t.type === "expense",
-      );
+      const monthTx = transactions.filter((t) => getMonthKey(t.date) === monthKey && t.type === "expense");
       const map = {};
       let total = 0;
       monthTx.forEach((t) => {
@@ -340,10 +326,10 @@ export const FinanceProvider = ({ children }) => {
       clearCategoryMonthData,
       getMonthSpending,
       getMonthIncome,
+      setSelectedMonth,
+      setBudgetTotal,
     ],
   );
 
-  return (
-    <FinanceContext.Provider value={value}>{children}</FinanceContext.Provider>
-  );
+  return <FinanceContext.Provider value={value}>{children}</FinanceContext.Provider>;
 };

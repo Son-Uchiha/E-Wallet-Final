@@ -1,5 +1,6 @@
 import Dashboard from "./components/layout/Dashboard";
 import Header from "./components/layout/Header";
+import TransactionForm from "./components/transactions/TransactionForm";
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
           {/* Trái: Dashboard Tổng quan (Chiếm 6/12 cột = 50% chiều rộng) */}
           <div className="flex w-full flex-col lg:col-span-6">
             <Dashboard />
+          </div>
+
+          {/* Phải: Form Thêm Giao Dịch (Chiếm 6/12 cột = 50% chiều rộng) */}
+          <div className="flex w-full flex-col lg:col-span-6">
+            <TransactionForm />
           </div>
         </div>
       </main>
