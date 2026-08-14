@@ -1,3 +1,4 @@
+import CategoryList from "./components/categories/CategoryList";
 import Dashboard from "./components/layout/Dashboard";
 import Header from "./components/layout/Header";
 import TransactionForm from "./components/transactions/TransactionForm";
@@ -24,6 +25,12 @@ function App() {
           {/* Phải: Form Thêm Giao Dịch (Chiếm 6/12 cột = 50% chiều rộng) */}
           <div className="flex w-full flex-col lg:col-span-6">
             <TransactionForm />
+          </div>
+
+          {/* --- HÀNG 2 --- */}
+          {/* Trái: Danh sách Danh mục (Chiếm 6/12 cột) */}
+          <div className="flex w-full flex-col lg:col-span-6">
+            <CategoryList />
           </div>
 
           {/* Phải: Lịch sử Giao dịch (Chiếm 6/12 cột) */}
