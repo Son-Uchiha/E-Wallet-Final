@@ -1,16 +1,63 @@
-# React + Vite
+# 💰 Ứng Dụng Quản Lý Chi Tiêu (E-Wallet)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Một ứng dụng web giúp người dùng theo dõi và quản lý tài chính cá nhân một cách dễ dàng và hiệu quả. Ứng dụng cung cấp cái nhìn tổng quan về dòng tiền, giúp người dùng ghi chép lại các giao dịch và quản lý danh mục thu chi khoa học.
 
-Currently, two official plugins are available:
+## ✨ Tính năng chính
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **📊 Bảng Điều Khiển (Dashboard):** Xem nhanh tổng quan về Số dư hiện tại, Tổng thu nhập và Tổng chi tiêu.
+- **💸 Quản Lý Giao Dịch:** 
+  - Thêm mới các giao dịch thu hoặc chi.
+  - Gán giao dịch cho từng danh mục cụ thể.
+- **📁 Quản Lý Danh Mục:** Xem và quản lý các danh mục chi tiêu/thu nhập.
+- **📝 Lịch Sử Giao Dịch:** Danh sách chi tiết toàn bộ các giao dịch đã thực hiện, giúp dễ dàng rà soát lại biến động số dư.
 
-## React Compiler
+## 🚀 Công nghệ sử dụng
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Thư viện chính:** [React.js](https://react.dev/) (v19)
+- **Công cụ build:** [Vite](https://vitejs.dev/)
+- **CSS Framework:** [Tailwind CSS](https://tailwindcss.com/) (v4)
+- **Quản lý State:** React Context API
 
-## Expanding the ESLint configuration
+## 🛠️ Cài đặt và Chạy cục bộ
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Làm theo các bước sau để chạy dự án trên máy của bạn:
+
+1. **Clone dự án (Nếu dùng Git):**
+   ```bash
+   git clone <repository-url>
+   cd E-Wallet-Final
+   ```
+
+2. **Cài đặt thư viện:**
+   Mở terminal tại thư mục dự án và chạy lệnh:
+   ```bash
+   npm install
+   ```
+
+3. **Khởi chạy Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Trải nghiệm ứng dụng:**
+   Mở trình duyệt và truy cập vào đường dẫn: `http://localhost:5173`
+
+## 📦 Các câu lệnh (Scripts) có sẵn
+
+- `npm run dev`: Khởi chạy môi trường phát triển cục bộ.
+- `npm run build`: Đóng gói (build) ứng dụng với cấu hình tối ưu để chuẩn bị đưa lên production.
+- `npm run preview`: Xem thử bản build production chạy thực tế ở local.
+- `npm run lint`: Chạy ESLint để kiểm tra và phát hiện các lỗi cú pháp/logic trong code.
+
+## 📂 Cấu trúc thư mục cơ bản
+
+```text
+src/
+├── components/     # Chứa các component giao diện (layout, giao dịch, danh mục, v.v.)
+├── context/        # Chứa Context API để quản lý state toàn cục (vd: FinanceContext)
+├── hooks/          # Chứa các custom hooks tái sử dụng
+├── utils/          # Các hàm hỗ trợ (format tiền tệ, xử lý ngày tháng, ...)
+├── App.jsx         # Component gốc định nghĩa cấu trúc layout chính của trang
+├── main.jsx        # Điểm khởi chạy của ứng dụng React
+└── index.css       # Các cấu hình style toàn cục và Tailwind
+```
