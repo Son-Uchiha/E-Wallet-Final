@@ -22,6 +22,10 @@ E-Wallet là một ứng dụng Web (Single Page Application) giúp người dù
   - Mọi dữ liệu được tự động lưu vào trình duyệt. Người dùng không lo mất dữ liệu khi F5 (Tải lại trang).
   - Tích hợp sẵn Seed Data (Dữ liệu mẫu) cho lần chạy đầu tiên.
 
+- **📈 Báo cáo Tổng hợp (Summary Report):**
+  - So sánh chi tiết biến động thu/chi giữa tháng hiện tại và tháng trước.
+  - Tự động tính toán số tiền chênh lệch và hiển thị huy hiệu (Badge) tăng/giảm trực quan.
+
 ---
 
 ## 🛠️ Công nghệ sử dụng (Tech Stack)
